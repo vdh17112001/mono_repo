@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { Button } from '@hoang/ui';
 import { add } from '@hoang/utils';
 
+import {MyText} from "@/Text"
 function App() {
   const [nums, setNums] = useState({
     a: '',
@@ -13,7 +14,7 @@ function App() {
       setNums((prevNums) => ({
         ...prevNums,
         [key]: e.target.value,
-      }));
+    }));
     };
 
   return (
@@ -27,6 +28,14 @@ function App() {
       >
         Add
       </Button>
+
+      <MyText
+        onClick={() => {
+          console.log(add(Number(nums.a), Number(nums.b)));
+        }}
+      >
+        Add
+      </MyText>
     </>
   );
 }
