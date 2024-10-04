@@ -4,6 +4,7 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BootSplash from "react-native-bootsplash";
 
 function HomeScreen() {
   return (
@@ -17,7 +18,9 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer onReady={() => {
+      BootSplash.hide();
+    }}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
